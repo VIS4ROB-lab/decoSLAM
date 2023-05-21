@@ -1,0 +1,46 @@
+.vscode/*
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+build*
+lib
+bin
+
+# Output files
+
+# Eclipse Project Files
+.cproject
+.project
+.settings
+
+# CLion
+.idea
+cmake-build-debug/*
+cmake-build-release/*
+
+# Qt-creater File
+*.user
+
+# Autosave Files
+*~
+*.autosave
+
+# Latex files
+*.aux
+*.dvi
+*.bbl
+*.log
+*.brf
+*.out
+*.soc
+*.blg
+*main.pdf
+
+# VIM ccls files
+.ccls
+compile_commands.json
