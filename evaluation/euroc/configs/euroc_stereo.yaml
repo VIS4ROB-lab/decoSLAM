@@ -1,0 +1,25 @@
+cam0:
+  type: CAMERA
+  camera_type: PINHOLE
+  topic: "/cam0/image_raw"
+  transformation: [ -0.007707179755532, 0.010499323370595, 0.701752800292141, 0.712301460668946, -0.0216401454975, -0.064676986768, 0.00981073058949 ]
+  rate: 20
+  resolution: [ 752, 480 ]
+  shutter: GLOBAL
+  intrinsics: [ 367.215, 248.375, 458.654, 457.296 ]
+  distortion:
+    type: radial_tangential
+    parameters: [ -0.28340811, 0.07395907, 1.76187114e-05, 0.00019359 ]
+
+cam1:
+  type: CAMERA
+  camera_type: PINHOLE
+  topic: "/cam1/image_raw"
+  transformation: [ -0.002550236745188, 0.015323927487975, 0.702486685782579, 0.711527321918909, -0.0198435579556, 0.0453689425024, 0.00786212447038 ]
+  rate: 20
+  resolution: [ 752, 480 ]
+  shutter: GLOBAL
+  intrinsics: [ 379.999, 255.238, 457.587, 456.134 ]
+  distortion:
+    type: radial_tangential
+    parameters: [ -0.28368365,  0.07451284, -3.55590700e-05, -0.00010473 ]
