@@ -39,3 +39,4 @@ system:
     admm_stepsize: 0.9
     dual_parameter_tolerance: 1e-4
     max_num_iterations: 10
+    rate: 20 # Optimizer runs every <rate> seconds. Needs to be adapted to playback speed.

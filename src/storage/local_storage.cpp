@@ -40,6 +40,7 @@ auto LocalStorage::readParameters(const YAML::Node& node) -> void {
     outlier_threshold_ = node["outlier_threshold"].as<Scalar>();
     admm_gamma_ = node["admm_gamma"].as<Scalar>();
     max_num_iterations_ = node["max_num_iterations"].as<int>();
+    optimizer_rate_us_ = node["rate"].as<int>()*1e6;
 }
 
 auto LocalStorage::setCommunicator(Communicator* communicator) -> void {
@@ -1259,10 +1260,10 @@ auto LocalStorage::optimize_() -> void {
         const auto time_after = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double, std::micro> diff = time_after - time_before;
         DLOG(INFO) << "Optimization took " << diff.count() << " us";
-        const auto rate_us = 4e6;
-        if (diff.count() < rate_us) {
-            DLOG(INFO) << "Optimizer sleeping for " << static_cast<int>(rate_us - diff.count()) << " microseconds.";
-            usleep(static_cast<int>(rate_us - diff.count()));
+        // const auto rate_us = 4e6;
+        if (diff.count() < optimizer_rate_us_) {
+            DLOG(INFO) << "Optimizer sleeping for " << static_cast<int>(optimizer_rate_us_ - diff.count()) << " microseconds.";
+            usleep(static_cast<int>(optimizer_rate_us_ - diff.count()));
         }
 
         lock.lock();

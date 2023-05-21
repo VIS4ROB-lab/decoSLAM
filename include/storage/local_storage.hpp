@@ -180,6 +180,7 @@ class LocalStorage {
     Scalar outlier_threshold_;
     Scalar admm_gamma_;
     int max_num_iterations_;
+    int optimizer_rate_us_;
 
     StorageMutexHandler& mutex_handler_;
 
