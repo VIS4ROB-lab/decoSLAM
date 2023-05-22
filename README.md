@@ -34,7 +34,7 @@ python evaluation/euroc/launcher_euroc.py
 ```
 This runs the five Machine Hall sequences concurrently at reduced speed. The experiment is run twice, once with map sharing among the team and once without map sharing. 
 
-Result folders containing trajectory estimates, map data and communication data will be saved to `evaluation/euroc/configs/<configuration_name>/run_<timestamp>`. In order to get a meaningful trajectory estimate from the map sharing results, the trajectory files need to be postprocessed. For this purpose, run
+Result folders containing trajectory estimates, map data and communication data will be saved to `evaluation/euroc/configs/<configuration_name>/result_<timestamp>`. In order to get a meaningful trajectory estimate from the map sharing results, the trajectory files need to be postprocessed. For this purpose, run
 
 ```
 ./build/combine_poses <path_to_result_folder>
