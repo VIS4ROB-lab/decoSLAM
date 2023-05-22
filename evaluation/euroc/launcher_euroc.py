@@ -40,13 +40,14 @@ CONFIGURATION_FOLDER = "evaluation/euroc/configs"
 RESULTS_PATTERN = "agent*"
 
 SLEEP_FINAL_OPTIMIZATION = 2 # After rosbags have been finished, how much time in seconds to wait until killing main(s)
-NUM_ITER=2  # Number of iterations to be repeated for each experiment
+NUM_ITER=1  # Number of iterations to be repeated for each experiment
 
 
 # Parse configuration folder to extract config files  
 experiment_path = os.listdir(CONFIGURATION_FOLDER)[0]
+experiment_folders = [item for item in os.listdir(CONFIGURATION_FOLDER) if os.path.isdir(os.path.join(CONFIGURATION_FOLDER, item))]
 
-for experiment_name in os.listdir(CONFIGURATION_FOLDER):
+for experiment_name in experiment_folders:
     experiment_path = os.path.join(CONFIGURATION_FOLDER, experiment_name)
     config_files = ([file for file in os.listdir(experiment_path) if "config" in file]) # Only capture files with name "*config*"
 
@@ -96,6 +97,6 @@ for experiment_name in os.listdir(CONFIGURATION_FOLDER):
         move_cmd = f"mv {RESULTS_PATTERN} {results_folder_path}"
         print(f"Moving result files with command: {move_cmd}")
         print(move_cmd.split(" "))
-        subprocess.run(move_cmd, shell=True) # THIS IS NOT WORKING ON MY MACHINE -->  TAKE A LOOK
+        subprocess.run(move_cmd, shell=True)
 
         time.sleep(1) # Just in case
