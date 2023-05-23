@@ -1,17 +1,17 @@
 <launch>
   <node pkg="rosbag" type="play" name="player0"
-  args="/home/philipp/Documents/Projects/Datasets/EuRoC/bagfiles/MH_01_easy.bag --start=45 --rate=0.05
+  args="path/to/bagfiles/MH_01_easy.bag --start=45 --rate=0.05
   /cam0/image_raw:=/agent_0/cam0/image_raw /cam1/image_raw:=/agent_0/cam1/image_raw"/>
   <node pkg="rosbag" type="play" name="player1"
-  args="/home/philipp/Documents/Projects/Datasets/EuRoC/bagfiles/MH_02_easy.bag --start=35 --rate=0.05
+  args="path/to/bagfiles/MH_02_easy.bag --start=35 --rate=0.05
   /cam0/image_raw:=/agent_1/cam0/image_raw /cam1/image_raw:=/agent_1/cam1/image_raw"/>
   <node pkg="rosbag" type="play" name="player2"
-  args="/home/philipp/Documents/Projects/Datasets/EuRoC/bagfiles/MH_03_medium.bag --start=20 --rate=0.05
+  args="path/to/bagfiles/MH_03_medium.bag --start=20 --rate=0.05
   /cam0/image_raw:=/agent_2/cam0/image_raw /cam1/image_raw:=/agent_2/cam1/image_raw"/>
   <node pkg="rosbag" type="play" name="player3"
-  args="/home/philipp/Documents/Projects/Datasets/EuRoC/bagfiles/MH_04_difficult.bag --start=20 --rate=0.05
+  args="path/to/bagfiles/MH_04_difficult.bag --start=20 --rate=0.05
   /cam0/image_raw:=/agent_3/cam0/image_raw /cam1/image_raw:=/agent_3/cam1/image_raw"/>
   <node pkg="rosbag" type="play" name="player4"
-  args="/home/philipp/Documents/Projects/Datasets/EuRoC/bagfiles/MH_05_difficult.bag --start=20 --rate=0.05
+  args="path/to/bagfiles/MH_05_difficult.bag --start=20 --rate=0.05
   /cam0/image_raw:=/agent_4/cam0/image_raw /cam1/image_raw:=/agent_4/cam1/image_raw"/>
 </launch>
