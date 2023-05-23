@@ -63,8 +63,6 @@ In order to spin up the peer-to-peer network, agents must load **the same networ
 ### Running the agents
 Repeat step 1 from above for each sequence in the dataset. Then you can spin up all agents with the above command, possibly on different machines. Finally, run your rosbags concurrently using e.g. a `.launch` file (see `evaluation/euroc/full_euroc.launch` for an example).
 
-## Known issues
-
 ## Contact
 [Philipp Bänninger](mailto:baephili@ethz.ch)
 
