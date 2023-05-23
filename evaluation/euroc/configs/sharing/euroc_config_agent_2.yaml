@@ -1,0 +1,42 @@
+name: deco_slam
+id: 2                               # Agent ID.
+system:
+  sensors:
+    sensor_config_file: "evaluation/euroc/configs/euroc_stereo.yaml"
+
+  communicator:
+    network_config_file: "evaluation/euroc/configs/network_5.yaml"
+
+  matching_parameters:
+    matching_threshold: 50            # Maximum bit difference for radius match.
+    epipolar_threshold: 2             # Threshold in pixel for epipolar constraint satisfaction.
+    ransac_threshold: 2               # Threshold in pixel for RANSAC inliers.
+    projection_threshold: 90          # Search radius in degrees around a map point projection.
+
+  local_tracking:
+    agast_threshold: 30               # Threshold for AGAST feature detection
+    min_num_points_tracked: 40        # Minimum number of map points tracked before keyframe creation.
+    baseline_depth_ratio: 0.15        # Threshold for baseline-depth-ratio for keyframe creation.
+
+  local_mapping:
+    triangulation_range: [ 10, 60 ]   # Depth range as multiplier of baseline for triangulation.
+    max_num_points: 200               # Maximum number of points to triangulate.
+
+  place_recognition:
+    netvlad_threshold: 0.12           # Matching threshold for NetVLAD features.
+    min_num_matches: 5                # Minimum number of matches for verification.
+    min_inlier_ratio: 0.7             # Inlier ratio threshold for verification.
+    feature_size: 128                 # Size of the NetVLAD feature.
+    vocabulary_path: "resources/vocabularies/netvlad_vocabulary_10.csv"
+    descriptor_path: "evaluation/euroc/descriptors/MH03/descriptors_out.csv"
+
+  optimizer:
+    do_map_sharing: true
+    pixel_noise: 1.0
+    huber_loss_threshold: 2.0
+    outlier_threshold: 5.0
+    admm_gamma: 100
+    admm_stepsize: 0.9
+    dual_parameter_tolerance: 1e-4
+    max_num_iterations: 10
+    rate: 20 # Optimizer runs every <rate> seconds. Needs to be adapted to playback speed.
